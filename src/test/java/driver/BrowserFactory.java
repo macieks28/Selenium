@@ -6,9 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-public class BrowserFactory {
+ class BrowserFactory {
 
-    public static WebDriver getBrowser(BrowserType browserType) {
+     static WebDriver getBrowser(BrowserType browserType) {
         switch (browserType) {
             case CHROME:
                 System.setProperty("webdriver.chrome.driver", "C:/Users/Admin/IdeaProjects/drivers/chromedriver.exe");
@@ -20,7 +20,7 @@ public class BrowserFactory {
                 System.setProperty("webdriver.ie.driver", "C:/Users/Admin/IdeaProjects/drivers/IEDriverServer.exe");
                 return new InternetExplorerDriver();
             default:
-                throw new IllegalStateException("Wrong browser!");
+                throw new IllegalStateException("Unknown browser!");
         }
     }
 }
