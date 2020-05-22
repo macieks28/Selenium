@@ -1,6 +1,5 @@
-package Pages;
+package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -8,19 +7,22 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-public class Zadanie5Page extends BasePage {
-    public Zadanie5Page(WebDriver driver) {
-        super(driver);
-    }
+public class Exercise5Page extends BasePage {
 
     @FindBy (xpath = "//span[contains(.,\"Wgraj plik\")]")
-    private WebElement przyciskWgrajPlik;
+    private WebElement buttonUploadFile;
 
 
-    public void wgrajPlik() throws AWTException, InterruptedException {
-    clickElement(przyciskWgrajPlik);
+    public void uploadFile() throws InterruptedException, AWTException {
+    buttonUploadFile.click();
         StringSelection ss = new StringSelection("C:\\Users\\Admin\\IdeaProjects\\Asta\\Zadanie5.txt");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+        pasteTextToWindowOutsideBrowserAndClickEnter();
+        Thread.sleep(2000);
+    }
+
+    private void pasteTextToWindowOutsideBrowserAndClickEnter() throws AWTException {
+        //uses ctrl+v then enter
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_V);
@@ -28,6 +30,5 @@ public class Zadanie5Page extends BasePage {
         robot.keyRelease(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
-        Thread.sleep(5000);
     }
 }
