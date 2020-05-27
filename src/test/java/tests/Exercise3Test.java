@@ -1,12 +1,13 @@
 package tests;
 
+import driver.DriverUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Exercise3Page;
 
 import static driver.DriverManager.getWebDriver;
-import static pages.BasePage.chooseExercise;
+import static navigation.ApplicationURLs.EXERCISE_3;
 import static pages.BasePage.uploadFileByPasteItsPathToWindowOutsideBrowser;
 import static waits.Wait.waitUntilElementIsNotVisible;
 
@@ -15,7 +16,7 @@ public class Exercise3Test extends TestBase {
 
     @Test
     public void activateAndFillTheForm() throws InterruptedException {
-        chooseExercise("3");
+        DriverUtils.navigateToPage(EXERCISE_3);
         Exercise3Page exercise3Page = new Exercise3Page();
         exercise3Page
                 .clickMenuButton()

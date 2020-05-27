@@ -1,17 +1,18 @@
 package tests;
 
+import driver.DriverUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Exercise1Page;
 
-import static pages.BasePage.chooseExercise;
+import static navigation.ApplicationURLs.EXERCISE_1;
 
 
 public class Exercise1Test extends TestBase {
 
     @Test
     public void addProductToBasket() {
-        chooseExercise("1");
+        DriverUtils.navigateToPage(EXERCISE_1);
         Exercise1Page exercise1Page = new Exercise1Page();
         String product = "Piłka";
         exercise1Page

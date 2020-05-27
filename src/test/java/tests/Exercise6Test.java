@@ -1,15 +1,16 @@
 package tests;
 
+import driver.DriverUtils;
 import org.testng.annotations.Test;
 import pages.Exercise6Page;
 
-import static pages.BasePage.chooseExercise;
+import static navigation.ApplicationURLs.EXERCISE_6;
 
 public class Exercise6Test extends TestBase {
 
     @Test
     public void logInAndDownloadFile() {
-        chooseExercise("6");
+        DriverUtils.navigateToPage(EXERCISE_6);
         Exercise6Page exercise6Page = new Exercise6Page();
         exercise6Page
                 .typeLogin("tester")

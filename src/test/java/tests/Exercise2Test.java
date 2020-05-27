@@ -1,19 +1,20 @@
 package tests;
 
+import driver.DriverUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Exercise2Page;
 
 import java.util.List;
 
-import static pages.BasePage.chooseExercise;
+import static navigation.ApplicationURLs.EXERCISE_2;
 
 public class Exercise2Test extends TestBase {
 
 
     @Test
     public void chooseSportFromDropDownAndCheckFilter() {
-        chooseExercise("2");
+        DriverUtils.navigateToPage(EXERCISE_2);
         Exercise2Page exercise2Page = new Exercise2Page();
         List elementsBefore = exercise2Page.numberOfElements();
         System.out.println("Ilość elementów przed zastosowaniem filtra: " + elementsBefore.size());

@@ -1,17 +1,18 @@
 package tests;
 
+import driver.DriverUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Exercise1Page;
 import pages.Exercise7Page;
 
-import static pages.BasePage.chooseExercise;
+import static navigation.ApplicationURLs.EXERCISE_7;
 
 public class Exercise7Test extends TestBase {
 
     @Test
     public void dragAndDropProductToBasketAndCheckQuantity() {
-        chooseExercise("7");
+        DriverUtils.navigateToPage(EXERCISE_7);
         Exercise1Page exercise1Page = new Exercise1Page();
         String productName = "Okulary";
         exercise1Page.typeQuantity(productName, "5");

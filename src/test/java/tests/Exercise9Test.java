@@ -1,18 +1,19 @@
 package tests;
 
+import driver.DriverUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Exercise9Page;
 
 import static driver.DriverManager.getWebDriver;
-import static pages.BasePage.chooseExercise;
+import static navigation.ApplicationURLs.EXERCISE_9;
 
 public class Exercise9Test extends TestBase {
 
     @Test
     public void changeFolderAndHeaderNames() {
-        chooseExercise("9");
+        DriverUtils.navigateToPage(EXERCISE_9);
         Exercise9Page exercise9Page = new Exercise9Page();
         exercise9Page
                 .clickOnRootFolder()

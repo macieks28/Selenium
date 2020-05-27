@@ -1,18 +1,19 @@
 package tests;
 
+import driver.DriverUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Exercise8Page;
 
 import static driver.DriverManager.getWebDriver;
-import static pages.BasePage.chooseExercise;
+import static navigation.ApplicationURLs.EXERCISE_8;
 
 public class Exercise8Test extends TestBase {
 
     @Test
     public void makePaymentUsingCreditCard() throws InterruptedException {
-        chooseExercise("8");
+        DriverUtils.navigateToPage(EXERCISE_8);
         Exercise8Page exercise8Page = new Exercise8Page();
         exercise8Page
                 .selectCardType("Visa")
