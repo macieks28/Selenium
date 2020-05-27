@@ -1,11 +1,14 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.Set;
 
 import static driver.DriverManager.getWebDriver;
+import static waits.Wait.waitUntilElementIsVisible;
 
 public class Exercise4Page extends BasePage {
 
@@ -20,10 +23,9 @@ public class Exercise4Page extends BasePage {
     @FindBy(xpath = "//iframe")
     private WebElement iframeFrame;
 
+    private Logger logger = LogManager.getRootLogger();
 
-
-    public void applyAndFillForm(String name, String email, String phone){
-        buttonApply.click();
+    public void switchToNewWindowAndFrame() {
         Set<String> allWindowHandles = getWebDriver().getWindowHandles();
         String lastWindowHandle = "";
         for (String handle : allWindowHandles) {
@@ -32,10 +34,35 @@ public class Exercise4Page extends BasePage {
         }
         getWebDriver().switchTo().window(lastWindowHandle);
         getWebDriver().switchTo().frame(iframeFrame);
-        inputName.sendKeys(name);
-        inputEmail.sendKeys(email);
-        inputPhone.sendKeys(phone);
+        logger.info("Switched to second window and frame");
+    }
+
+    public void clickOnSaveButton() {
         buttonSave.click();
+        logger.info("Clicked on save button");
+
+    }
+
+    public void typePhone(String phone) {
+        inputPhone.sendKeys(phone);
+        logger.info("Typed phone{}", phone);
+    }
+
+    public void typeEmail(String email) {
+        inputEmail.sendKeys(email);
+        logger.info("Typed email {}", email);
+    }
+
+    public void typeName(String name) {
+        waitUntilElementIsVisible(inputName);
+        inputName.sendKeys(name);
+        logger.info("Typed name {}", name);
+    }
+
+    public void clickApplyButton() {
+        waitUntilElementIsVisible(buttonApply);
+        buttonApply.click();
+        logger.info("Clicked on Apply button");
     }
 }
 

@@ -11,7 +11,8 @@ public class Exercise6Test extends TestBase {
     public void logInAndDownloadFile() {
         chooseExercise("6");
         Exercise6Page exercise6Page = new Exercise6Page();
-        exercise6Page.logIn("tester", "123-xyz");
+        exercise6Page.typeLogin("tester");
+        exercise6Page.typePassword("123-xyz");
         exercise6Page.downloadFile();
     }
 }

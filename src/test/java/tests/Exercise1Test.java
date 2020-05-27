@@ -13,8 +13,8 @@ public class Exercise1Test extends TestBase {
     public void addProductToBasket() {
         chooseExercise("1");
         Exercise1Page exercise1Page = new Exercise1Page();
-        exercise1Page.addProductToBasket("Piłka", "3");
+        exercise1Page.typeQuantity("Piłka", "3");
+        exercise1Page.clickOnAddProduct("Piłka");
         Assert.assertEquals(exercise1Page.checkProductsQuantityInBasket(), "3");
-
     }
 }

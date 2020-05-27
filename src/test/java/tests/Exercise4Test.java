@@ -15,7 +15,12 @@ public class Exercise4Test extends TestBase {
     public void applyForPositionAndFillTheForm() {
         chooseExercise("4");
         Exercise4Page exercise4Page = new Exercise4Page();
-        exercise4Page.applyAndFillForm("Maciej", "bbbbb@aaaa.pl", "600-600-600");
+        exercise4Page.clickApplyButton();
+        exercise4Page.typeName("Maciej");
+        exercise4Page.typeEmail("example@example.com");
+        exercise4Page.typePhone("600600600");
+        exercise4Page.switchToNewWindowAndFrame();
+        exercise4Page.clickOnSaveButton();
         WebElement result = getWebDriver().findElement(By.xpath("//h1"));
         Assert.assertEquals(result.getText(), "Wiadomość została wysłana");
     }

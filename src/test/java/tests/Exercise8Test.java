@@ -14,7 +14,13 @@ public class Exercise8Test extends TestBase {
     public void makePaymentUsingCreditCard() {
         chooseExercise("8");
         Exercise8Page exercise8Page = new Exercise8Page();
-        exercise8Page.fillTheFormAndPay("Visa", "Maciej Xinski", "4111111111111111", "123", "February", "2022");
+        exercise8Page.selectCardType("Visa");
+        exercise8Page.typeNameAndLastname("Maciej Xinski");
+        exercise8Page.typeCardNumber("4111111111111111");
+        exercise8Page.typeCvv("123");
+        exercise8Page.selectMonth("February");
+        exercise8Page.selectYear("2022");
+        exercise8Page.clickOnPayButton();
         Assert.assertEquals(getWebDriver().findElement(By.xpath("//li[contains(.,'Zamówienie opłacone')]")).getText(), "Zamówienie opłacone");
     }
 }

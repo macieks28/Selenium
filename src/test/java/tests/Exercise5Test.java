@@ -10,14 +10,18 @@ import java.awt.*;
 
 import static driver.DriverManager.getWebDriver;
 import static pages.BasePage.chooseExercise;
+import static pages.Exercise5Page.uploadFileByPasteItsPathToWindowOutsideBrowser;
 
 public class Exercise5Test extends TestBase {
 
     @Test
-    public void uploadFileAndCheckTable() throws AWTException, InterruptedException {
+    public void uploadFileAndCheckTable() throws InterruptedException {
         chooseExercise("5");
         Exercise5Page exercise5Page = new Exercise5Page();
-        exercise5Page.uploadFile();
+        exercise5Page.clickUpload();
+        Thread.sleep(1000); //TODO avoid Thread.sleep
+        uploadFileByPasteItsPathToWindowOutsideBrowser("C:\\Users\\Admin\\IdeaProjects\\Asta\\Zadanie5.txt");
+        Thread.sleep(1000); //TODO avoid Thread.sleep
         WebElement fieldName = getWebDriver().findElement(By.xpath("//td"));
         Assert.assertEquals(fieldName.getText(), "Jan");
     }

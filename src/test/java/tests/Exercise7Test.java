@@ -13,9 +13,10 @@ public class Exercise7Test extends TestBase {
     public void dragAndDropProductToBasketAndCheckQuantity() {
         chooseExercise("7");
         Exercise1Page exercise1Page = new Exercise1Page();
-        exercise1Page.setQuantity("Okulary", "5");
+        String productName ="Okulary";
+        exercise1Page.typeQuantity(productName, "5");
         Exercise7Page exercise7Page = new Exercise7Page();
-        exercise7Page.dragAndDropProductToBasket("Okulary");
+        exercise7Page.dragAndDropProductToBasket(productName);
         Assert.assertEquals(exercise1Page.checkProductsQuantityInBasket(), "5");
     }
 }

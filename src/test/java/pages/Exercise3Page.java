@@ -1,10 +1,13 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import static driver.DriverManager.getWebDriver;
+import static waits.Wait.waitUntilElementIsVisible;
 
 public class Exercise3Page extends BasePage {
 
@@ -22,21 +25,56 @@ public class Exercise3Page extends BasePage {
     private WebElement inputNote;
     @FindBy(id = "in-phone")
     private WebElement inputPhone;
+    @FindBy(css = "#span-file")
+    private WebElement buttonUpload;
 
+    private Logger logger = LogManager.getRootLogger();
 
-    public void editForm() {
+    public void clickMenuButton() {
+        waitUntilElementIsVisible(buttonMenu);
         buttonMenu.click();
-        Actions action = new Actions(getWebDriver());
-        action.moveToElement(buttonForm).perform();
-        buttonEdit.click();
+        logger.info("Clicked menu button");
     }
 
-    public void fillTheFormAndSave(String name, String lastName, String note, String phone) {
+    public void moveToButtonFormElement() {
+        Actions action = new Actions(getWebDriver());
+        action.moveToElement(buttonForm).perform();
+        logger.info("Moved to button");
+    }
+
+    public void clickEditButton() {
+        buttonEdit.click();
+        logger.info("Clicked edit button");
+    }
+
+    public void typeName(String name) {
         sendKeysElement(inputName, name);
+        logger.info("Typed into field text {}", name);
+    }
+
+    public void typeLastName(String lastName) {
         sendKeysElement(inputLastName, lastName);
+        logger.info("Typed into field text {}", lastName);
+    }
+
+    public void typeNote(String note) {
         sendKeysElement(inputNote, note);
+        logger.info("Typed into field text {}", note);
+    }
+
+    public void typePhone(String phone) {
         sendKeysElement(inputPhone, phone);
+        logger.info("Typed into field text {}", phone);
+    }
+
+    public void clickButtonUploadFile() {
+        buttonUpload.click();
+        logger.info("Clicked upload button");
+    }
+
+    public void clickButtonSave() {
         buttonSave.click();
+        logger.info("Clicked save button");
     }
 
 }
