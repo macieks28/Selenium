@@ -10,14 +10,14 @@ public class TestBase {
     private static String BASE_URL = "https://testingcup.pgs-soft.com/";
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         DriverManager.getWebDriver();
         DriverUtils.setInitialConfiguration();
         DriverUtils.navigateToPage(BASE_URL);
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         DriverManager.disposeDriver();
     }
 }

@@ -11,16 +11,18 @@ import static pages.BasePage.chooseExercise;
 public class Exercise8Test extends TestBase {
 
     @Test
-    public void makePaymentUsingCreditCard() {
+    public void makePaymentUsingCreditCard() throws InterruptedException {
         chooseExercise("8");
         Exercise8Page exercise8Page = new Exercise8Page();
-        exercise8Page.selectCardType("Visa");
-        exercise8Page.typeNameAndLastname("Maciej Xinski");
-        exercise8Page.typeCardNumber("4111111111111111");
-        exercise8Page.typeCvv("123");
-        exercise8Page.selectMonth("February");
-        exercise8Page.selectYear("2022");
-        exercise8Page.clickOnPayButton();
+        exercise8Page
+                .selectCardType("Visa")
+                .typeNameAndLastname("Maciej Xinski")
+                .typeCardNumber("4111111111111111")
+                .typeCvv("123")
+                .selectMonth("February")
+                .selectYear("2022")
+                .clickOnPayButton();
+        Thread.sleep(500); //TODO Avoid thread sleep
         Assert.assertEquals(getWebDriver().findElement(By.xpath("//li[contains(.,'Zamówienie opłacone')]")).getText(), "Zamówienie opłacone");
     }
 }

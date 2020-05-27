@@ -14,10 +14,11 @@ public class Exercise9Test extends TestBase {
     public void changeFolderAndHeaderNames() {
         chooseExercise("9");
         Exercise9Page exercise9Page = new Exercise9Page();
-        exercise9Page.clickOnRootFolder();
-        exercise9Page.contextClickOnElement();
-        exercise9Page.moveToElement();
-        exercise9Page.typeFolderName("Test");
+        exercise9Page
+                .clickOnRootFolder()
+                .contextClickOnElement()
+                .moveToElement()
+                .typeFolderName("Test");
         Assert.assertEquals(getWebDriver().findElement(By.xpath("//h1")).getText(), "Test");
     }
 }

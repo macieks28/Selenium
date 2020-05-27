@@ -1,12 +1,9 @@
 package tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Exercise3Page;
-
-import java.awt.*;
 
 import static driver.DriverManager.getWebDriver;
 import static pages.BasePage.chooseExercise;
@@ -20,14 +17,15 @@ public class Exercise3Test extends TestBase {
     public void activateAndFillTheForm() throws InterruptedException {
         chooseExercise("3");
         Exercise3Page exercise3Page = new Exercise3Page();
-        exercise3Page.clickMenuButton();
-        exercise3Page.moveToButtonFormElement();
-        exercise3Page.clickEditButton();
-        exercise3Page.typeName("Jan");
-        exercise3Page.typeLastName("Kowalski");
-        exercise3Page.typeNote("Testowa notatka");
-        exercise3Page.typePhone("600600600");
-        exercise3Page.clickButtonUploadFile();
+        exercise3Page
+                .clickMenuButton()
+                .moveToButtonFormElement()
+                .clickEditButton()
+                .typeName("Jan")
+                .typeLastName("Kowalski")
+                .typeNote("Testowa notatka")
+                .typePhone("600600600")
+                .clickButtonUploadFile();
         Thread.sleep(1000); //TODO avoid Thread.sleep
         uploadFileByPasteItsPathToWindowOutsideBrowser("C:\\Users\\Admin\\IdeaProjects\\Asta\\src\\main\\resources\\test.jpg");
         waitUntilElementIsNotVisible(By.xpath("//img[@src='/images/pgs_cv.jpg']"));

@@ -6,8 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Exercise5Page;
 
-import java.awt.*;
-
 import static driver.DriverManager.getWebDriver;
 import static pages.BasePage.chooseExercise;
 import static pages.Exercise5Page.uploadFileByPasteItsPathToWindowOutsideBrowser;

@@ -27,43 +27,50 @@ public class Exercise8Page extends BasePage {
 
     private Logger logger = LogManager.getRootLogger();
 
-    public void selectCardType(String paymentMethod) {
+    public Exercise8Page selectCardType(String paymentMethod) {
         waitUntilElementIsVisible(dropDownCardType);
         Select dropTyp = new Select(dropDownCardType);
         dropTyp.selectByVisibleText(paymentMethod);
         logger.info("Selected payment method {}", paymentMethod);
+        return this;
     }
 
-    public void typeNameAndLastname(String nameAndLastName) {
+    public Exercise8Page typeNameAndLastname(String nameAndLastName) {
         sendKeysElement(inputNameAndLastName, nameAndLastName);
         logger.info("Typed name and last name {}", nameAndLastName);
+        return this;
     }
 
-    public void typeCardNumber(String cardNumber) {
+    public Exercise8Page typeCardNumber(String cardNumber) {
         sendKeysElement(inputCardNumber, cardNumber);
         logger.info("Typed card number {}", cardNumber);
+        return this;
     }
 
-    public void typeCvv(String cvv) {
+    public Exercise8Page typeCvv(String cvv) {
         sendKeysElement(inputCvv, cvv);
         logger.info("Typed CVV {}", cvv);
+        return this;
     }
 
-    public void selectMonth(String month) {
+    public Exercise8Page selectMonth(String month) {
         Select dropMonth = new Select(dropDownMonth);
         dropMonth.selectByVisibleText(month);
         logger.info("Selected month {}", month);
+        return this;
     }
 
-    public void selectYear(String year) {
+    public Exercise8Page selectYear(String year) {
         Select dropYear = new Select(dropDownYear);
         dropYear.selectByVisibleText(year);
         logger.info("Selected year {}", year);
+        return this;
     }
 
-    public void clickOnPayButton() {
+    public Exercise8Page clickOnPayButton() {
         buttonPay.click();
         logger.info("Clicked Pay button");
+        return this;
     }
 }
 

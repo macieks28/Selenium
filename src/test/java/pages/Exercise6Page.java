@@ -22,21 +22,24 @@ public class Exercise6Page extends BasePage {
 
     private Logger logger = LogManager.getRootLogger();
 
-    public void typeLogin(String login) {
+    public Exercise6Page typeLogin(String login) {
         waitUntilElementIsVisible(inputLogin);
         inputLogin.sendKeys(login);
         logger.info("Typed login {}", login);
+        return this;
     }
 
-    public void typePassword(String password) {
+    public Exercise6Page typePassword(String password) {
         inputPassword.sendKeys(password);
         buttonLogin.click();
         logger.info("Typed login {}", password);
+        return this;
     }
 
-    public void downloadFile() {
+    public Exercise6Page downloadFile() {
         waitUntilElementIsClickable(linkToDownload);
         linkToDownload.click();
         logger.info("Clicked on download button");
+        return this;
     }
 }

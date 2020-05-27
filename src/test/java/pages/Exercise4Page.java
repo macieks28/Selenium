@@ -25,7 +25,7 @@ public class Exercise4Page extends BasePage {
 
     private Logger logger = LogManager.getRootLogger();
 
-    public void switchToNewWindowAndFrame() {
+    public Exercise4Page switchToNewWindowAndFrame() {
         Set<String> allWindowHandles = getWebDriver().getWindowHandles();
         String lastWindowHandle = "";
         for (String handle : allWindowHandles) {
@@ -35,34 +35,39 @@ public class Exercise4Page extends BasePage {
         getWebDriver().switchTo().window(lastWindowHandle);
         getWebDriver().switchTo().frame(iframeFrame);
         logger.info("Switched to second window and frame");
+        return this;
     }
 
-    public void clickOnSaveButton() {
+    public Exercise4Page clickOnSaveButton() {
         buttonSave.click();
         logger.info("Clicked on save button");
-
+        return this;
     }
 
-    public void typePhone(String phone) {
+    public Exercise4Page typePhone(String phone) {
         inputPhone.sendKeys(phone);
         logger.info("Typed phone{}", phone);
+        return this;
     }
 
-    public void typeEmail(String email) {
+    public Exercise4Page typeEmail(String email) {
         inputEmail.sendKeys(email);
         logger.info("Typed email {}", email);
+        return this;
     }
 
-    public void typeName(String name) {
+    public Exercise4Page typeName(String name) {
         waitUntilElementIsVisible(inputName);
         inputName.sendKeys(name);
         logger.info("Typed name {}", name);
+        return this;
     }
 
-    public void clickApplyButton() {
+    public Exercise4Page clickApplyButton() {
         waitUntilElementIsVisible(buttonApply);
         buttonApply.click();
         logger.info("Clicked on Apply button");
+        return this;
     }
 }
 

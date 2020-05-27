@@ -18,17 +18,19 @@ public class Exercise1Page extends BasePage {
 
     private Logger logger = LogManager.getRootLogger();     //TODO dodanie loggera i redesign metod w page obiectach
 
-    public void typeQuantity(String productName, String quantity) {
+    public Exercise1Page typeQuantity(String productName, String quantity) {
         waitUntilElementIsVisible(header);
         WebElement inputQuantity = getWebDriver().findElement(By.xpath("//h4[text()='" + productName + "']//parent::div//input"));
         sendKeysElement(inputQuantity, quantity);
         logger.info("Typed into field text {}", quantity);
+        return this;
     }
 
-    public void clickOnAddProduct(String productName) {
+    public Exercise1Page clickOnAddProduct(String productName) {
         WebElement buttonAdd = getWebDriver().findElement(By.xpath("//h4[text()='" + productName + "']//parent::div//button"));
         buttonAdd.click();
         logger.info("Clicked Dodaj button");
+        return this;
     }
 
     public String checkProductsQuantityInBasket() {

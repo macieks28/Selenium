@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import static driver.DriverManager.getWebDriver;
+import static waits.Wait.waitUntilElementIsClickable;
 import static waits.Wait.waitUntilElementIsVisible;
 
 public class Exercise3Page extends BasePage {
@@ -30,51 +31,61 @@ public class Exercise3Page extends BasePage {
 
     private Logger logger = LogManager.getRootLogger();
 
-    public void clickMenuButton() {
+    public Exercise3Page clickMenuButton() {
         waitUntilElementIsVisible(buttonMenu);
         buttonMenu.click();
         logger.info("Clicked menu button");
+        return this;
     }
 
-    public void moveToButtonFormElement() {
+    public Exercise3Page moveToButtonFormElement() {
         Actions action = new Actions(getWebDriver());
         action.moveToElement(buttonForm).perform();
         logger.info("Moved to button");
+        return this;
     }
 
-    public void clickEditButton() {
+    public Exercise3Page clickEditButton() {
         buttonEdit.click();
         logger.info("Clicked edit button");
+        return this;
     }
 
-    public void typeName(String name) {
+    public Exercise3Page typeName(String name) {
+        waitUntilElementIsClickable(inputName);
         sendKeysElement(inputName, name);
         logger.info("Typed into field text {}", name);
+        return this;
     }
 
-    public void typeLastName(String lastName) {
+    public Exercise3Page typeLastName(String lastName) {
         sendKeysElement(inputLastName, lastName);
         logger.info("Typed into field text {}", lastName);
+        return this;
     }
 
-    public void typeNote(String note) {
+    public Exercise3Page typeNote(String note) {
         sendKeysElement(inputNote, note);
         logger.info("Typed into field text {}", note);
+        return this;
     }
 
-    public void typePhone(String phone) {
+    public Exercise3Page typePhone(String phone) {
         sendKeysElement(inputPhone, phone);
         logger.info("Typed into field text {}", phone);
+        return this;
     }
 
-    public void clickButtonUploadFile() {
+    public Exercise3Page clickButtonUploadFile() {
         buttonUpload.click();
         logger.info("Clicked upload button");
+        return this;
     }
 
-    public void clickButtonSave() {
+    public Exercise3Page clickButtonSave() {
         buttonSave.click();
         logger.info("Clicked save button");
+        return this;
     }
 
 }

@@ -20,17 +20,19 @@ public class Exercise2Page extends BasePage {
 
     private Logger logger = LogManager.getRootLogger();
 
-    public void clickDropDown() {
+    public Exercise2Page clickDropDown() {
         waitUntilElementIsVisible(header);
         WebElement drop = getWebDriver().findElement(By.xpath("//span[contains(@class,\"select2-container\")]"));
         drop.click();
         logger.info("Clicked dropdown");
+        return this;
     }
 
-    public void typeTextToInput(String text) {
+    public Exercise2Page typeTextToInput(String text) {
         WebElement input = getWebDriver().findElement(By.xpath("//input[contains(@class,\"select2-search__field\")]"));
         sendKeysElement(input, text);
         logger.info("Typed into field text {}", text);
+        return this;
     }
 
     //    public void selectFromDropDown(WebElement element, String tekst) {

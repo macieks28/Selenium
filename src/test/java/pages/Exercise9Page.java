@@ -22,33 +22,37 @@ public class Exercise9Page extends BasePage {
 
     private Logger logger = LogManager.getRootLogger();
 
-    public void clickOnRootFolder() {
+    public Exercise9Page clickOnRootFolder() {
         waitUntilElementIsClickable(rootFolder);
         rootFolder.click();
         logger.info("Clicked on root folder");
+        return this;
     }
 
-    public void contextClickOnElement() {
+    public Exercise9Page contextClickOnElement() {
         Actions actions = new Actions(getWebDriver());
         actions.contextClick(rootFolder)
                 .perform();
         logger.info("Clicked right mouse button on root folder");
+        return this;
     }
 
-    public void moveToElement() {
+    public Exercise9Page moveToElement() {
         Actions actions = new Actions(getWebDriver());
         waitUntilElementIsClickable(buttonChangeName);
         actions.moveToElement(buttonChangeName)
                 .click().perform();
         logger.info("Moved to element");
+        return this;
     }
 
-    public void typeFolderName(String name) {
+    public Exercise9Page typeFolderName(String name) {
         Actions actions = new Actions(getWebDriver());
         actions.sendKeys(name)
                 .sendKeys(Keys.ENTER)
                 .build().perform();
         logger.info("Typed name of the folder {}", name);
+        return this;
     }
 
 }
