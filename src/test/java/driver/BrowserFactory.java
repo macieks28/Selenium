@@ -1,23 +1,24 @@
 package driver;
 
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
- class BrowserFactory {
+import static configuration.LocalWebDriverProperties.*;
 
-     static WebDriver getBrowser(BrowserType browserType) {
+class BrowserFactory {
+
+    static WebDriver getBrowser(BrowserType browserType) {
         switch (browserType) {
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", "C:/Users/Admin/IdeaProjects/drivers/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", getChromeDriverLocation());
                 return new ChromeDriver();
             case FIREFOX:
-                System.setProperty("webdriver.gecko.driver", "C:/Users/Admin/IdeaProjects/drivers/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", getFirefoxDriverLocation());
                 return new FirefoxDriver();
             case IE:
-                System.setProperty("webdriver.ie.driver", "C:/Users/Admin/IdeaProjects/drivers/IEDriverServer.exe");
+                System.setProperty("webdriver.ie.driver", getIEDriverLocation());
                 return new InternetExplorerDriver();
             default:
                 throw new IllegalStateException("Unknown browser!");
