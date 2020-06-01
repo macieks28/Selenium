@@ -2,7 +2,9 @@ package driver;
 
 import org.openqa.selenium.WebDriver;
 
-import static configuration.LocalWebDriverProperties.getLocalBrowser;
+import static configuration.TestRunProperties.getBrowserToRun;
+import static configuration.TestRunProperties.getIsRemoteRun;
+import static driver.BrowserType.FIREFOX;
 
 
 public class DriverManager {
@@ -13,16 +15,15 @@ public class DriverManager {
     }
 
     public static WebDriver getWebDriver() {
-
         if (driver == null) {
-            driver = BrowserFactory.getBrowser(getLocalBrowser());
+            driver = new BrowserFactory(getBrowserToRun(), getIsRemoteRun()).getBrowser();
         }
         return driver;
     }
 
     public static void disposeDriver() {
         driver.close();
-        if (!getLocalBrowser().equals(BrowserType.FIREFOX)) {
+        if (!getBrowserToRun().equals(FIREFOX)) {
             driver.quit();
         }
         driver = null;
