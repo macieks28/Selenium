@@ -19,7 +19,7 @@ public class Exercise5Test extends TestBase {
         Exercise5Page exercise5Page = new Exercise5Page();
         exercise5Page.clickUpload();
         Thread.sleep(1000); //TODO avoid Thread.sleep
-        uploadFileByPasteItsPathToWindowOutsideBrowser("C:\\Users\\Admin\\IdeaProjects\\Asta\\Zadanie5.txt");
+        uploadFileByPasteItsPathToWindowOutsideBrowser("C:\\Users\\Admin\\IdeaProjects\\Asta\\src\\test\\resources\\Exercise5.txt"); //file has to be exactly there!
         Thread.sleep(1000); //TODO avoid Thread.sleep
         WebElement fieldName = getWebDriver().findElement(By.xpath("//td"));
         Assert.assertEquals(fieldName.getText(), "Jan");

@@ -28,7 +28,7 @@ public class Exercise3Test extends TestBase {
                 .typePhone("600600600")
                 .clickButtonUploadFile();
         Thread.sleep(1000); //TODO avoid Thread.sleep
-        uploadFileByPasteItsPathToWindowOutsideBrowser("C:\\Users\\Admin\\IdeaProjects\\Asta\\src\\main\\resources\\test.jpg");
+        uploadFileByPasteItsPathToWindowOutsideBrowser("C:\\Users\\Admin\\IdeaProjects\\Asta\\src\\test\\resources\\test.jpg"); //file has to be exactly there!
         waitUntilElementIsNotVisible(By.xpath("//img[@src='/images/pgs_cv.jpg']"));
         exercise3Page.clickButtonSave();
         Assert.assertFalse(getWebDriver().findElement(By.id("in-name")).isEnabled());

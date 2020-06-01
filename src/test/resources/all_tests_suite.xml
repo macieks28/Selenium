@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All Asta tests">
+
+    <test name="Exercise 1">
+        <classes>
+            <class name="tests.Exercise1Test"/>
+        </classes>
+    </test>
+
+    <test name="Exercise 2">
+        <classes>
+            <class name="tests.Exercise2Test"/>
+        </classes>
+    </test>
+
+    <test name="Exercise 3">
+        <classes>
+            <class name="tests.Exercise3Test"/>
+        </classes>
+    </test>
+
+    <test name="Exercise 4">
+        <classes>
+            <class name="tests.Exercise4Test"/>
+        </classes>
+    </test>
+
+    <test name="Exercise 5">
+        <classes>
+            <class name="tests.Exercise5Test"/>
+        </classes>
+    </test>
+
+    <test name="Exercise 6">
+        <classes>
+            <class name="tests.Exercise6Test"/>
+        </classes>
+    </test>
+
+    <test name="Exercise 7">
+        <classes>
+            <class name="tests.Exercise7Test"/>
+        </classes>
+    </test>
+
+    <test name="Exercise 8">
+        <classes>
+            <class name="tests.Exercise8Test"/>
+        </classes>
+    </test>
+
+    <test name="Exercise 9">
+        <classes>
+            <class name="tests.Exercise9Test"/>
+        </classes>
+    </test>
+
+    <test name="Transition from main page to other task">
+        <classes>
+            <class name="tests.TransitionFromMainPageToTaskTest"/>
+        </classes>
+    </test>
+
+</suite>
